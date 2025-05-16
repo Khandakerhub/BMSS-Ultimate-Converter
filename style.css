@@ -1,0 +1,364 @@
+/* CSS Variables for Themes */
+:root {
+    --bg-color: #fffbe5;
+    --text-color: #202020;
+    --primary-color: #1d04fc;
+    --secondary-color: #cac097;
+    --border-color: #c5bba2;
+    --code-bg: #f8f9fa;
+    --code-text: #333;
+    --code-border: #dee2e6;
+    --input-background: #f5f2f0;
+    --input-text: #222222;
+    --subHeaderText: #1c1c1c;
+
+}
+
+[data-theme="dark"] {
+    --bg-color: #353535;
+    --text-color: #ffffff;
+    --primary-color: #1d04fc;
+    --secondary-color: #3699fc;
+    --border-color: #808080;
+    --code-bg: #2d2d2d;
+    --code-text: #cccccc;
+    --code-border: #404040;
+    --input-background: #414141;
+    --input-text: #f0f0f0;
+    --subHeaderText: #fcf9f9;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.conLogo {
+    width: 60px;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.conHeader {
+    font-size: 32px;
+}
+
+.theme-toggle {
+    background: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Converter Sections */
+.converter-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.converter-section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* History Section */
+.history-section {
+    display: block !important;
+    /* Always visible */
+}
+
+/* Tab Navigation */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    font-size: 16px;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: background 0.2s;
+    margin-bottom: 15px;
+}
+
+.tab-btn:hover {
+    color: white;
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    border-radius: 10px 10px 0 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+
+.input-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+p.subHeader {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--subHeaderText);
+    margin-top: 20px;
+    margin-bottom: 0px;
+
+}
+
+p.outPut {
+    margin-bottom: 10px;
+}
+
+input {
+    font-family: 'Fira Code', monospace;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--input-background);
+    color: var(--input-text);
+    width: 100%;
+    min-height: fit-content;
+    margin-top: -5px;
+}
+
+select {
+    font-family: 'Fira Code', monospace;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--input-background);
+    color: var(--text-color);
+    width: 100%;
+    min-height: fit-content;
+    margin-top: -5px;
+}
+
+/* Code Container Styles */
+/* Code Container Styles */
+pre,
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: scroll;
+}
+
+/*
+pre {
+    background: #2d2d2d;
+    color: #ccc;
+    border: 1px solid #404040;
+}
+
+/* Dark/Light Mode Compatibility */
+/*[data-theme="light"] pre {
+    background: #f8f9fa;
+    color: #333;
+    border-color: #dee2e6;
+} */
+
+/* Prism Overrides */
+.token.operator {
+    background: transparent !important;
+}
+
+/* CSV Output Specific */
+#csvOutput {
+    margin-top: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* CSV Output Styles */
+#csvOutput pre {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    background: var(--code-bg) !important;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+#csvOutput code {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* SQL Specific Highlighting */
+.token.keyword.sql {
+    color: #ff79c6;
+}
+
+.token.function.sql {
+    color: #50fa7b;
+}
+
+.token.string.sql {
+    color: #f1fa8c;
+}
+
+/* JSON Output Specific */
+#jsonOutput {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#binaryOutput {
+    word-break: break-all;
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap;
+}
+
+textarea {
+    font-family: 'Fira Code', monospace;
+    padding: 0.8rem;
+    margin-top: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--input-background);
+    color: var(--text-color);
+    width: 100%;
+    min-width: 300px;
+    min-height: 90px;
+    margin-top: -5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    padding: 0.6rem 1rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* History Section */
+.history-section {
+    margin-top: 2rem;
+}
+
+.history-list {
+    list-style: none;
+    color: #1d04fc;
+    margin-top: 1rem;
+}
+
+.history-item {
+    padding: 0.8rem;
+    background: var(--secondary-color);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colorPick-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input#colorPicker {
+    width: 50px;
+    height: 50px;
+    padding: -10px;
+}
+
+#colorPreview {
+    color: #888888;
+    text-shadow: #202020;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+.h2history {
+    color: var(--subHeaderText);
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .conHeader {
+    font-size: 28px;
+}
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .tabs {
+        gap: 0.5rem;
+    }
+
+    .tab-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

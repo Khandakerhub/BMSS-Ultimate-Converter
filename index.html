@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/qRH6Lfry/Converter.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Data Converter</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Add SQL highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <!-- Prism Syntax Highlighting -->
+    <link id="prism-theme" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-xml.min.js"></script>
+    <!-- Add this after other Prism scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="conLogo" src="https://i.postimg.cc/qRH6Lfry/Converter.png" alt="logo">
+            <h1 class="conHeader">BMSS Ultimate Converter</h1>
+            <button class="theme-toggle" id="themeToggle">🌓 Toggle Theme</button>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="number" type="button">Number</button>
+            <button class="tab-btn" data-tab="ascii" type="button">ASCII</button>
+            <button class="tab-btn" data-tab="color" type="button">Color</button>
+            <button class="tab-btn" data-tab="Base64" type="button">Base64</button>
+            <button class="tab-btn" data-tab="JSON" type="button">JSON</button>
+            <button class="tab-btn" data-tab="Binary" type="button">Binary</button>
+            <button class="tab-btn" data-tab="Time&Date" type="button">Time & Date</button>
+            <button class="tab-btn" data-tab="csv" type="button">CSV</button>
+            <button class="tab-btn" data-tab="url" type="button">URL</button>
+            <button class="tab-btn" data-tab="fileFormat" type="button">File</button>
+        </nav>
+
+        <main>
+            <!-- Number Converter -->
+            <section class="converter-section active" data-tab="number">
+                <div class="input-group">
+                    <p class="subHeader">Enter value:</p>
+                    <input type="text" placeholder="Enter number..." id="numberInput">
+                    <p class="subHeader">Select data type:</p>
+                    <select id="numberType" title="numberType">
+                        <option value="dec">Decimal</option>
+                        <option value="bin">Binary</option>
+                        <option value="hex">Hexadecimal</option>
+                        <option value="oct">Octal</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertNumber()" type="button">Convert</button>
+                    <button class="btn" onclick="copyResult('numberOutput')" type="button">Copy Output</button>
+                </div>
+                    <p class="outPut subHeader">Output:</p>
+                <textarea id="numberOutput" readonly placeholder="Conversion results..."></textarea>
+            </section>
+
+            <!-- ASCII Converter -->
+            <section class="converter-section" data-tab="ascii">
+                <div class="input-group">
+                    <p class="subHeader">Enter data value:</p>
+                    <textarea placeholder="Enter data value here.." id="asciiInput"></textarea>
+                    <p class="subHeader">Select converter type:</p>
+                    <select id="asciiDirection" title="asciiDirection">
+                        <option value="toAscii">Text to ASCII</option>
+                        <option value="toText">ASCII to Text</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertAscii()">Convert</button>
+                    <button class="btn" onclick="copyResult('asciiOutput')">Copy Output</button>
+                </div>
+                    <p class="outPut subHeader">Output:</p>
+                <textarea id="asciiOutput" readonly title="asciiOutput"></textarea>
+            </section>
+
+            <!-- Color Converter -->
+            <section class="converter-section" data-tab="color">
+                <div class="input-group">
+                    <dev class="colorPick-section">
+                        <p class="colorPicker subHeader">Use color picker or Enter code bellow:</p>
+                        <input type="color" id="colorPicker" title="color">
+                    </dev>
+                    <input type="text" placeholder="Enter code HEX or RGB and select same bellow" id="colorInput">
+                    <p class="subHeader">Select value type:</p>
+                    <select id="colorFormat" title="colorFormat">
+                        <option value="hex">HEX</option>
+                        <option value="rgb">RGB</option>
+                        <!--    <option value="hsl">HSL</option>
+                <option value="cmyk">CMYK</option> -->
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertColor()" type="button">Convert</button>
+                    <button class="btn" onclick="copyResult('colorOutput')" type="button">Copy Output</button>
+                    
+                </div>
+                <div id="colorPreview">Color Preview</div>
+                <p class="outPut subHeader">Output:</p>
+                <textarea id="colorOutput" readonly title="colorOutput"></textarea>
+            </section>
+
+            <!-- Base64 Converter -->
+            <section class="converter-section" data-tab="Base64">
+                <div class="input-group">
+                <p class="subHeader">Enter text or Base64 value:</p>
+                    <textarea placeholder="Enter text to Encode or Base64 to Decode..." id="base64Input"></textarea>
+                    <!--    <input type="file" id="base64File" title="base64File"> -->
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="encodeBase64()" type="button">Encode (to Base64)</button>
+                    <button class="btn" onclick="decodeBase64()" type="button">Decode (to Text)</button>
+                    <button class="btn" onclick="copyResult('base64Output')" type="button">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>                
+                <textarea id="base64Output" readonly title="base64Output"></textarea>
+            </section>
+
+            <!-- JSON Converter -->
+            <section class="converter-section" data-tab="JSON">
+                <div class="input-group">
+                <p class="subHeader">Enter JSON, XML, or YAML data:</p>
+                    <textarea placeholder="Paste JSON, XML, or YAML data here..." id="jsonInput"></textarea>
+                <p class="subHeader">Select to convert:</p>
+                    <select id="jsonTarget" title="jsonTarget">
+                        <option value="xml">XML</option>
+                        <option value="yaml">YAML</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertJson()" type="button">Convert</button>
+                    <button class="btn" onclick="copyResult('jsonOutput')" type="button">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <pre><code id="jsonOutput"></code></pre>
+            </section>
+
+            <!-- Update Binary Converter HTML -->
+            <section class="converter-section" data-tab="Binary">
+                <div class="input-group">
+                <p class="subHeader">Select converter:</p>
+                    <select id="binaryDirection">
+                        <option value="binToText">Binary → Text</option>
+                        <option value="textToBin">Text → Binary</option>
+                    </select>
+                <p class="subHeader">Enter data value:</p>
+                    <textarea placeholder="Enter binary (space-separated) or text..." id="binaryInput"></textarea>
+                <p class="subHeader">Select data type:</p>
+                    <select id="binaryEncoding">
+                        <option value="ascii">ASCII</option>
+                        <option value="utf8">UTF-8</option>
+                        <option value="utf16">UTF-16</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertBinary()">Convert</button>
+                    <button class="btn" onclick="copyResult('binaryOutput')">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <textarea id="binaryOutput" readonly></textarea>
+            </section>
+
+            <!-- Time & Date Converter -->
+            <section class="converter-section" data-tab="Time&Date">
+                <div class="input-group">
+                <p class="subHeader">Select date & time:</p>
+                    <input type="datetime-local" id="dateTimeInput" title="dateTimeInput">
+                <p class="subHeader">Enter Unix timestamp:</p>
+                    <input type="number" placeholder="Unix timestamp" id="unixInput">
+                <p class="subHeader">Select time zone:</p>
+                    <select id="timezoneSelect" title="timezoneSelect">
+                        <option value="local">Local Time</option>
+                        <option value="utc">UTC</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertDateTime()">Convert</button>
+                    <button class="btn" onclick="copyResult('dateOutput')">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <textarea id="dateOutput" readonly title="dateOutput"></textarea>
+            </section>
+
+            <!-- Update CSV Converter HTML -->
+            <section class="converter-section" data-tab="csv">
+                <div class="input-group">
+                    <p class="subHeader">Paste CSV, JSON, or SQL data:</p>
+                    <textarea placeholder="Paste CSV, JSON, or SQL data here..." id="csvInput"></textarea>
+                    <p class="subHeader">Select to convert:</p>
+                    <select id="csvTarget">
+                        <option value="json">JSON</option>
+                        <option value="sql">SQL</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertCsv()">Convert</button>
+                    <button class="btn" onclick="copyCSVOutput()">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <div id="csvOutput"></div>
+            </section>
+
+            <!-- URL Converter -->
+            <section class="converter-section" data-tab="url">
+                <div class="input-group">
+                <p class="subHeader">Enter URL:</p>
+                    <textarea placeholder="Enter URL..." id="urlInput"></textarea>
+                <p class="subHeader">Select to encode or decode:</p>
+                    <select id="urlOperation" title="urlOperation">
+                        <option value="encode">Encode</option>
+                        <option value="decode">Decode</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertUrl()">Convert</button>
+                    <button class="btn" onclick="copyResult('urlOutput')">Copy Output</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <textarea id="urlOutput" readonly title="urlOutput"></textarea>
+            </section>
+
+            <!-- File Format Converter -->
+            <section class="converter-section" data-tab="fileFormat">
+                <div class="input-group">
+                <p class="subHeader">select a file:</p>
+                    <input type="file" id="fileInput" title="fileInput">
+                <p class="subHeader">Select converter:</p>
+                    <select id="fileConversion" title="fileConversion">
+                        <option value="pdf-txt">PDF to TXT</option>
+                        <option value="md-html">Markdown to HTML</option>
+                        <option value="html-md">HTML to Markdown</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="convertFile()">Convert</button>
+                    <button class="btn" onclick="downloadFile()">Download</button>
+                </div>
+                <p class="outPut subHeader">Output:</p>
+                <textarea id="fileOutput" readonly title="fileOutput"></textarea>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <h2 class="h2history">Conversion History:</h2>
+                <ul class="history-list" id="historyList"></ul>
+                <button class="btn" onclick="clearHistory()" type="button">Clear History</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
