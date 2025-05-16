@@ -149,6 +149,7 @@ p.outPut {
 
 input {
     font-family: 'Fira Code', monospace;
+    font-size: 14px;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -161,6 +162,7 @@ input {
 
 select {
     font-family: 'Fira Code', monospace;
+    font-size: 14px;
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -176,7 +178,7 @@ select {
 pre,
 code {
     font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.2;
     border-radius: 6px;
     padding: 1rem;
@@ -220,7 +222,7 @@ pre {
 
 #csvOutput code {
     font-family: 'Fira Code', monospace !important;
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -240,7 +242,7 @@ pre {
 /* JSON Output Specific */
 #jsonOutput {
     font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
+    font-size: 14px;
     margin: 0;
 }
 
@@ -252,6 +254,7 @@ pre {
 
 textarea {
     font-family: 'Fira Code', monospace;
+    font-size: 14px;
     padding: 0.8rem;
     margin-top: 5px;
     border: 1px solid var(--border-color);
@@ -260,7 +263,7 @@ textarea {
     color: var(--text-color);
     width: 100%;
     min-width: 300px;
-    min-height: 90px;
+    min-height: 100px;
     margin-top: -5px;
 }
 
