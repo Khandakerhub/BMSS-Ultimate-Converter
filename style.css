@@ -3,14 +3,16 @@
     --bg-color: #fffbe5;
     --text-color: #202020;
     --primary-color: #1d04fc;
-    --secondary-color: #cac097;
+    --secondary-color: #027ffc;
     --border-color: #c5bba2;
     --code-bg: #f8f9fa;
     --code-text: #333;
     --code-border: #dee2e6;
     --input-background: #f5f2f0;
     --input-text: #222222;
-    --subHeaderText: #1c1c1c;
+    --subHeader-text: #1c1c1c;
+    --history-text: #000000;
+    --history-bg: #ebebea;
 
 }
 
@@ -18,14 +20,16 @@
     --bg-color: #353535;
     --text-color: #ffffff;
     --primary-color: #1d04fc;
-    --secondary-color: #3699fc;
+    --secondary-color: #027ffc;
     --border-color: #808080;
     --code-bg: #2d2d2d;
     --code-text: #cccccc;
     --code-border: #404040;
     --input-background: #414141;
     --input-text: #f0f0f0;
-    --subHeaderText: #fcf9f9;
+    --subHeader-text: #fcf9f9;
+    --history-text: #d1d0d0;
+    --history-bg: #2e2e2e;
 }
 
 /* Base Styles */
@@ -50,7 +54,7 @@ body {
 }
 
 .conLogo {
-    width: 60px;
+    width: 80px;
 }
 
 /* Header Styles */
@@ -108,9 +112,9 @@ body {
     padding: 0.8rem 1.5rem;
     background: var(--secondary-color);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    color: var(--primary-color);
+    color: #000000;
     transition: background 0.2s;
     margin-bottom: 15px;
 }
@@ -137,7 +141,7 @@ body {
 p.subHeader {
     font-size: 16px;
     font-weight: 600;
-    color: var(--subHeaderText);
+    color: var(--subHeader-text);
     margin-top: 20px;
     margin-bottom: 0px;
 
@@ -294,13 +298,13 @@ textarea {
 
 .history-list {
     list-style: none;
-    color: #1d04fc;
+    color: var(--history-text);
     margin-top: 1rem;
 }
 
 .history-item {
-    padding: 0.8rem;
-    background: var(--secondary-color);
+    padding: 0.5rem;
+    background: var(--history-bg);
     border-radius: 4px;
     margin-bottom: 0.5rem;
     display: flex;
@@ -342,10 +346,14 @@ input#colorPicker {
         display: flex;
         flex-direction: column;
     }
-    
+
+    .conLogo {
+        width: 60px;
+    }
+
     .conHeader {
-    font-size: 28px;
-}
+        font-size: 28px;
+    }
 
     .container {
         padding: 0.5rem;
